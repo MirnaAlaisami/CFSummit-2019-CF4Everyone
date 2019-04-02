@@ -1,7 +1,7 @@
 ---------------------------------------  
 
 cf login -a \<APIEndpint>  
-cf push first-push -p target\first-push-app-0.1-SNAPSHOT.jar --random-route  
+cf push first-push -p target\first-push-app-0.1-SNAPSHOT.jar -m 750M --random-route  
 cf apps  
   
 ---------------------------------------  
