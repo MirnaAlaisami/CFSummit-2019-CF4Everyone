@@ -53,20 +53,26 @@ public class CloudAppInfoConfig extends AbstractCloudConfig {
 		String result;
 		switch (cfAPI) {
 			case "https://api.de.a9s.eu":
-				result = "anynines"; 
-				break;
-			case "https://api.run.pivotal.io":
-				result = "Pivotal Web Services";
-				break;
-			case "https://api.lyra-836.appcloud.swisscom.com":
-				result = "Swisscom";
-				break;
-			case "https://api.console.bluemix.net":
-				result = "IBM Bluemix";
-				break;
-			default:
-				result = "unknown provider";
-				break;
+                result = "anynines ("+cfAPI+")";
+                break;
+            case "https://api.run.pivotal.io":
+                result = "Pivotal Web Services (" + cfAPI + ")";
+                break;
+            case "https://api.local.pcfdev.io":
+                result = "PCF Dev (" + cfAPI + ")";
+                break;
+            case "https://api.lyra-836.appcloud.swisscom.com":
+                result = "Swisscom ("+cfAPI+")";
+                break;
+            case "https://api.console.bluemix.net":
+                result = "IBM Bluemix (" + cfAPI + ")";
+                break;
+            case "https://api.cf.us30.hana.ondemand.com":
+                result = "SAP Cloud (" + cfAPI + ")";
+            break;
+            default:
+                result = cfAPI;
+                break;
 		}
 		return result;
 
