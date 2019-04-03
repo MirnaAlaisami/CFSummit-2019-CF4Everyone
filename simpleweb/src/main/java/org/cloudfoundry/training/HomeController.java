@@ -26,7 +26,6 @@ public class HomeController {
 		model.addAttribute("instanceIndex", appInfo.getInstanceIndex());
 		model.addAttribute("spaceName", appInfo.getSpaceName());
 		model.addAttribute("database", appInfo.getDatabase());
-		
         return "index";
     }
 	

@@ -1,6 +1,8 @@
 package org.cloudfoundry.training;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
@@ -18,7 +20,7 @@ public class CloudAppInfoConfig extends AbstractCloudConfig {
 	public final String CF_API_KEY = "cf_api";
 	public final String APP_NAME_KEY = "application_name";
 	public final String INSTANCE_INDEX_KEY = "instance_index";
-	public final String SPACE_NAME_KEY = "space_name";
+    public final String SPACE_NAME_KEY = "space_name";
 	
 	@Bean
 	public AppInfo appInfo() throws SQLException {
@@ -26,11 +28,11 @@ public class CloudAppInfoConfig extends AbstractCloudConfig {
 		
 
 		String cfAPI = (String)properties.get(CF_API_KEY);
-		String providerName = getProviderName(cfAPI);
+		String providerName = (String)getProviderName(cfAPI);
 		String appName = (String)properties.get(APP_NAME_KEY);
 		int instanceIndex = (Integer)properties.get(INSTANCE_INDEX_KEY);
 		String spaceName = (String)properties.get(SPACE_NAME_KEY);
-		String database = getDatabase();
+        String database = getDatabase();
 		return new AppInfo(providerName, appName, instanceIndex, spaceName, database);
 	}
 	
@@ -76,8 +78,9 @@ public class CloudAppInfoConfig extends AbstractCloudConfig {
 		}
 		return result;
 
-	}
-
+    }
+    
+    
     private boolean isMySQL(DataSource dataSource) throws SQLException {
       return dataSource.getConnection().getMetaData().getDriverName().toLowerCase().contains("mysql");
     }

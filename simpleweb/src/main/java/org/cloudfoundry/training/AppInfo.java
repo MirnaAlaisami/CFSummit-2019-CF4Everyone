@@ -13,6 +13,7 @@ public class AppInfo {
 	private int instanceIndex;
 	private String spaceName;
 	private String database;
+	private String appURIs;
 	
 	public AppInfo() {}
 
@@ -43,6 +44,8 @@ public class AppInfo {
 	public String getDatabase() {
 		return database;
 	}
+
+	
 	
 	
 }
